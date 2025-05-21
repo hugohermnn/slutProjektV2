@@ -1,0 +1,275 @@
+/* Importerar Google Fonts med fonten Pontano Sans i olika vikter */
+@import url('https://fonts.googleapis.com/css2?family=Pontano+Sans:wght@300..700&display=swap');
+
+/* Nollställer marginaler och padding för alla element, och sätter box-sizing för enklare layout */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Grundinställningar för body */
+body {
+    font-family: 'Pontano Sans', sans-serif; /* Använder den importerade fonten */
+    text-align: center; /* Centrerar all text som standard */
+    height: 100%; /* Höjden 100% av viewport */
+    height: 1000%; /* OBS: denna rad verkar överflödig/konflikt, kan tas bort eller förtydligas */
+    padding: 0; /* Ingen extra padding */
+    margin: 0; /* Ingen marginal */
+}
+
+/* Tar bort understrykning på alla länkar */
+a {
+    text-decoration: none;
+}
+
+/* Styling för header */
+header {
+    background: #1b1b1b; /* Mörk bakgrundsfärg */
+    padding: 10px 20px; /* Lite padding runt */
+}
+
+/* Nav-elementet: flexbox för att centrera innehåll */
+nav {
+    display: flex;
+    justify-content: center; /* Centrerar horisontellt */
+    align-items: center; /* Vertikal centrering */
+    position: relative; /* För positionering av eventuella absolut-positionerade barn */
+}
+
+/* Logotyp för mobil - göms som standard */
+.logo-mobile {
+    display: none;
+}
+
+/* Lista med navigeringslänkar */
+.nav-links {
+    list-style: none; /* Tar bort punkter */
+    display: flex; /* Visar länkarna i rad */
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Mellanrum mellan länkar */
+}
+
+/* Varje listobjekt i nav är inline */
+.nav-links li {
+    display: inline;
+}
+
+/* Länkar i navigeringen */
+.nav-links a {
+    color: #ffffff; /* Vit textfärg */
+    text-decoration: none; /* Ingen understrykning */
+    font-size: 18px; /* Lagom stor text */
+}
+
+/* Container för logotyp-bilden i nav */
+.nav-img {
+    flex-grow: 1; /* Tar upp tillgängligt utrymme */
+    display: flex;
+    justify-content: center; /* Centrerar bilden */
+}
+
+/* Bilder inuti ul li */
+ul li img {
+    width: 120px; /* Bredd på logotyper/bilder */
+    height: 120px; /* Höjd */
+}
+
+/* Hamburger-ikon (de tre strecken) - göms som standard */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer; /* Visa pekare vid hover */
+    position: absolute; /* Placeras absolut */
+    right: 20px; /* 20px från högerkant */
+    top: 15px; /* 15px från toppen */
+}
+
+/* Streck i hamburgern */
+.hamburger span {
+    background: white; /* Vit färg */
+    width: 25px; /* Bredd */
+    height: 3px; /* Tjocklek */
+    margin: 5px 0; /* Mellanrum mellan strecken */
+}
+
+/* Logotyp för desktop visas som standard */
+.logo-desktop {
+    display: block;
+}
+
+/* Text som visas för mobil logotyp - göms som standard */
+.logo-mobile-text {
+    display: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Grid för bilder */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Anpassar antal kolumner beroende på skärmstorlek */
+    gap: 10px; /* Mellanrum mellan bilder */
+    justify-content: center; /* Centrerar grid */
+}
+
+/* Bilder i grid */
+.image-grid img {
+    width: 100%; /* Fyller ut grid-cellen */
+    height: auto; /* Behåller proportioner */
+}
+
+/* Footer-styling */
+footer {
+    background-color: #1b1b1b; /* Mörk bakgrund */
+    color: #fff; /* Vit text */
+    padding: 20px 10px; /* Padding runt innehållet */
+    text-align: center; /* Centrerar text */
+}
+
+/* Container för länkar i footer */
+.footer-links {
+    margin-bottom: 12px; /* Avstånd under länkar */
+}
+
+/* Footer-länkar */
+.footer-links a {
+    color: #fff; /* Vita länkar */
+    text-decoration: none; /* Ingen understrykning */
+    margin: 0 20px; /* Horisontellt avstånd mellan länkar */
+    font-size: 16px;
+    display: inline-block; /* Så margin funkar horisontellt */
+    transition: color 0.3s; /* Mjuk övergång vid hover */
+}
+
+/* Hover-effekt på footer-länkar */
+.footer-links a:hover {
+    color: #00bcd4; /* Blå färg på hover */
+}
+
+/* Copyright-text i footer */
+.footer-copy {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+/* Main taggen får växa för att fylla utrymme */
+main {
+    flex: 1;
+}
+
+/* ----- Media queries för skärmar max 768px (mobiler & små tablets) ----- */
+@media (max-width: 768px) {
+    /* Nav justeras för mindre skärm */
+    nav {
+        justify-content: space-between; /* Mer luft mellan element */
+        padding: 10px 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* Body får vit bakgrund på mobil */
+    body {
+        background-color: rgb(255, 255, 255);
+        height: 1000%; /* Kan vara för scroll - men kan justeras */
+    }
+
+    /* Navigeringslänkar göms tills hamburgare klickas */
+    .nav-links {
+        display: none;
+        flex-direction: column; /* Staplas vertikalt */
+        background: #1a1a1a; /* Mörk bakgrund */
+        position: absolute; /* Överlappar innehåll */
+        top: 50px; /* Under nav */
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        z-index: 100; /* Ligger över annat */
+    }
+
+    /* När menyn är aktiv (öppen) visas den */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Hamburgare visas på mobil */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 0.01px;
+        width: 30px;
+    }
+
+    /* Streck i hamburgaren blir lite större och rundade hörn */
+    .hamburger span {
+        background: white;
+        width: 30px;
+        height: 4px;
+        border-radius: 2px;
+    }
+
+    /* Desktoploggan göms på mobil */
+    .logo-desktop {
+        display: none;
+    }
+
+    /* Mobil-text logga visas */
+    .logo-mobile-text {
+        display: block;
+    }
+
+    /* Nav-bild centrerad */
+    .nav-img {
+        justify-content: center;
+    }
+
+    /* Justerar marginaler för text på mobil */
+    .text-1 {
+        margin-top: 10px;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    /* Mobil logga visas, positionerad */
+    .logo-mobile {
+        display: block;
+        width: 50px;
+        max-width: 100%;
+        height: auto;
+        position: absolute;
+        left: 10px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    /* Bildgrid får mindre gap och padding på mobil */
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 2px;
+        justify-content: center;
+        padding-top: 100px;
+    }
+
+    /* Bilder i grid får fast bredd 100px på mobil */
+    .image-grid img {
+        width: 100px;
+        height: auto;
+    }
+
+    /* Footer-länkar staplas vertikalt på mobil */
+    .footer-links a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    /* Mindre textstorlek för alla p-taggar på mobil */
+    p {
+        font-size: 12px;
+    }
+}

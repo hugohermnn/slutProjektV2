@@ -1,0 +1,85 @@
+.sources {
+  /* Boxen som håller hela källförteckningen, centrerad och max 768px bred */
+  width: 100%; /* Tar hela bredden på mindre skärmar */
+  max-width: 768px; /* Men blir aldrig bredare än 768px */
+  margin: 32px auto; /* Lite luft ovan och under, och centrerad */
+  padding: 24px; /* Inre luft så texten inte klibbar ihop */
+  box-sizing: border-box; /* Padding räknas in i bredden, så inget klipper */
+  flex: 1; /* Tar upp så mycket plats den kan i flexbox */
+}
+
+#sources h2 {
+  /* Rubriken för källorna */
+  font-size: 28.8px; /* Lite större text för rubrik */
+  margin-bottom: 16px; /* Luft under rubriken */
+  color: #000000; /* Svart färg */
+  padding-bottom: 8px; /* Lite extra luft under texten */
+}
+
+.source-list {
+  /* Listan som håller alla källor */
+  list-style: none; /* Tar bort standard-punkterna */
+  padding: 0; /* Tar bort inbyggd padding */
+  margin: 0; /* Tar bort margin också */
+}
+
+.source-list li {
+  /* Varje källa i listan */
+  margin-bottom: 12px; /* Lite luft mellan varje källa */
+}
+
+
+.source-list a {
+  /* Länkarna till källorna */
+  color: #000000; /* Svart textfärg */
+  text-decoration: none; /* Tar bort understrykning */
+  font-size: 18px; /* Lagom stor text */
+  word-break: break-word; /* Så länkarna bryts om de är för långa */
+}
+
+.source-list a:hover {
+  /* När man håller musen över en källa */
+  color: #004999; /* Blå färg som markerar att det går att klicka */
+  text-decoration: underline; /* Understrykning på hover för tydlighet */
+}
+
+.box-left {
+  /* En ruta till vänster, t.ex. för bild eller info */
+  margin-top: 40px; /* Luft ovanför */
+  width: 250px; /* Fast bredd */
+  height: auto; /* Höjden anpassar sig efter innehållet */
+  border-radius: 8px; /* Runda hörn för snyggare utseende */
+  object-fit: cover; /* Täcker hela ytan utan att förvränga */
+  background-color: rgb(210, 201, 140); /* Gul-beige bakgrundsfärg */
+  text-align: left; /* Texten är vänsterställd */
+  padding: 10px; /* Luft inuti rutan */
+}
+
+.box {
+  /* En flexbox-behållare som innehåller .box-left och annat */
+  display: flex; /* Flexbox för att lägga saker på rad */
+  flex-direction: row; /* Rader, alltså horisontellt */
+  align-items: flex-start; /* Börjar längst upp på alla element */
+  gap: 20px; /* Mellanrum mellan barnen */
+  max-width: 1000px; /* Maxbredd på hela boxen */
+  margin: 40px auto; /* Luft ovanför och centrerad */
+  padding: 20px; /* Luft inuti hela boxen */
+}
+
+@media (max-width: 768px) {
+    /* Mobilanpassning */
+    .box {
+        flex-direction: column; /* Staplar innehållet på höjden */
+        gap: 15px; /* Mindre mellanrum mellan elementen */
+        padding: 15px; /* Lite mindre padding inuti */
+    }
+
+    .box-left {
+        width: 100%; /* Tar hela bredden på mobilen */
+        padding: 10px; /* Behåller lite luft inuti */
+        text-align: center; /* Centrerar texten för bättre look */
+    }
+    .sources {
+        width: 100%; /* Boxen tar hela bredden på små skärmar */
+    }
+}

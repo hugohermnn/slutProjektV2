@@ -1,0 +1,41 @@
+/* Container för första stycket - flexbox för horisontell layout */
+.first-paragraph {
+    display: flex; /* Aktiverar flexbox */
+    flex-direction: row; /* Lägger barn i rad (horisontellt) */
+    align-items: flex-start; /* Justerar barnen så de startar högst upp */
+    gap: 20px; /* Avstånd mellan flexbarnen */
+    max-width: 1000px; /* Maxbredd på containern */
+    margin: 40px auto; /* 40px marginal ovan och under, centrerar horisontellt */
+    padding: 20px; /* Inre padding runt innehållet */
+}
+
+/* Bild i vänsterdel av first-paragraph */
+.first-paragraph-left img {
+    margin-top: 40px; /* Marginal ovanför bilden */
+    width: 250px; /* Fast bredd på bilden */
+    height: auto; /* Behåller proportioner */
+    border-radius: 8px; /* Rundar hörnen på bilden */
+    object-fit: cover; /* Bilden fyller sin ram utan att förvrängas */
+}
+
+/* Högerdel av first-paragraph som tar upp återstående utrymme */
+.first-paragraph-right {
+    flex: 1; /* Tar upp all tillgänglig bredd som finns kvar */
+    text-align: left; /* Texten är vänsterställd */
+}
+
+/* Responsiv styling för skärmar som är max 768px breda */
+@media (max-width: 768px) {
+    /* Byter layouten till vertikal stapling på små skärmar */
+    .first-paragraph {
+        flex-direction: column; /* paragraferna staplas vertikalt */
+        align-items: center; /* Centrerar barnen horisontellt */
+        text-align: center; /* Centrerar texten i hela containern */
+    }
+
+    /* Högerdelen på små skärmar */
+    .first-paragraph-right {
+        text-align: left; /* Texten är vänsterställd igen */
+        max-width: 90%; /* Begränsar bredden något för bättre läsbarhet */
+    }
+}

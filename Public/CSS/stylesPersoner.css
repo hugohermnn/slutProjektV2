@@ -1,0 +1,38 @@
+.first-paragraph {
+    /* En flexbox-behållare för första stycket med bild och text sida vid sida */
+    display: flex; /* Gör så att barnen ligger på en rad */
+    flex-direction: row; /* Saker bredvid varandra horisontellt */
+    align-items: flex-start; /* Allt börjar högst upp */
+    gap: 20px; /* Mellanrum mellan bild och text */
+    max-width: 1000px; /* Maxbredd så det inte blir för stort */
+    margin: 40px auto; /* Luft ovanför och centrerar hela blocket */
+    padding: 20px; /* Inre luft för att det inte ska kännas trångt */
+}
+
+.first-paragraph-left img {
+    /* Bilden till vänster i första stycket */
+    width: 180px; /* Bestämd bredd så den inte blir för stor */
+    height: auto; /* Behåller proportionerna */
+    border-radius: 8px; /* Runda hörn så den ser mjukare ut */
+    object-fit: cover; /* Bilden täcker sin yta snyggt utan att förvrängas */
+}
+
+.first-paragraph-right {
+    /* Texten till höger, bredvid bilden */
+    flex: 1; /* Tar upp resten av utrymmet breddmässigt */
+    text-align: left; /* Texten är vänsterställd som vanligt */
+}
+
+@media (max-width: 768px) {
+    /* När skärmen är mindre, typ mobil */
+    .first-paragraph {
+        flex-direction: column; /* Staplar bild och text ovanpå varandra */
+        align-items: center; /* Centrerar allt horisontellt */
+        text-align: center; /* Texten centrerad för bättre mobil-läsning */
+    }
+
+    .first-paragraph-right {
+        text-align: center; /* Texten centrerad i mobilen */
+        max-width: 90%; /* Lite marginaler så det inte går kant i kant */
+    }
+}

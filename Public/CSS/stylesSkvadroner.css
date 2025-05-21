@@ -1,0 +1,26 @@
+.first-paragraph {
+    display: flex; /* Gör så att innehållet ligger i en rad, flexibel layout */
+    justify-content: center; /* Centrerar innehållet horisontellt */
+    text-align: left; /* Texten är vänsterställd */
+    padding-left: 300px; /* Stort mellanrum på vänster sida */
+    padding-right: 300px; /* Samma stora mellanrum på höger sida */
+    padding-top: 4px; /* Lite luft ovanifrån */
+}
+
+.subtitle h2 {
+    display: flex; /* Gör så att rubriken också kan centreras med flex */
+    justify-content: center; /* Centrerar rubriken horisontellt */
+    padding-top: 10px; /* Lite extra luft ovanför rubriken */
+}
+
+@media (max-width: 768px) {
+    /* När skärmen är mindre, typ mobil */
+    .first-paragraph {
+        display: flex; /* Behåller flex för att kunna styra layout */
+        justify-content: center; /* Fortfarande centrerat innehåll */
+        text-align: left; /* Texten är fortfarande vänsterställd */
+        padding-left: 40px; /* Mindre padding på vänster sida för små skärmar */
+        padding-right: 40px; /* Mindre padding på höger sida också */
+        padding-top: 5px; /* Lite mer luft ovanifrån än på desktop */
+    }
+}

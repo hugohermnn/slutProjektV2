@@ -1,0 +1,96 @@
+.timeline {
+    /* Här är själva tidslinje-boxen som håller allt, den är centrerad och max 600px bred */
+    position: relative; /* Behövs för att kunna placera saker inuti med absoluta positioner */
+    width: 90%; /* Tar upp nästan hela bredden men med lite marginal */
+    max-width: 600px; /* Men den blir aldrig bredare än 600px */
+    margin: auto; /* Centrerar tidslinjen horisontellt på sidan */
+    padding: 40px 0; /* Lite luft ovanför och under */
+}
+
+.timeline::before {
+    /* Det här är linjen i mitten av tidslinjen */
+    content: ''; /* Inget textinnehåll, bara en "prick" eller linje */
+    position: absolute; /* Så vi kan placera den exakt där vi vill */
+    top: 0; /* Börjar högst upp i föräldern */
+    bottom: 0; /* Går hela vägen ner också */
+    left: 50%; /* Precis i mitten horisontellt */
+    width: 4px; /* Smal linje */
+    background: #555; /* Mörkgrå färg på linjen */
+    transform: translateX(-50%); /* Flyttar linjen exakt 50% till vänster så den är centrerad */
+}
+
+.timeline-point {
+    /* Varje punkt på tidslinjen där något händer */
+    position: relative; /* För att kunna placera punkten med ::before */
+    width: 100%; /* Tar hela bredden inom .timeline */
+    padding: 40px 0; /* Lite luft ovanför och under varje punkt */
+    display: flex; /* Gör så att innehållet blir en rad bredvid varandra */
+    justify-content: space-between; /* Sprider ut innehållet med jämna mellanrum */
+    align-items: center; /* Centrerar innehållet vertikalt */
+}
+
+.timeline-point::before {
+    /* Den lilla cirkeln som visar själva punkten på tidslinjen */
+    content: ''; /* Ingen text, bara en cirkel */
+    position: absolute; /* För att placera den precis på mitten */
+    left: 50%; /* Horisontellt mitt på */
+    transform: translateX(-50%); /* Flyttar cirkeln exakt så den är centrerad */
+    width: 20px; /* Cirkelns bredd */
+    height: 20px; /* Cirkelns höjd */
+    background: #fff; /* Vit fyllning */
+    border: 4px solid #000080; /* Blå kant runt cirkeln */
+    border-radius: 50%; /* Gör cirkeln rund */
+    z-index: 1; /* Så den hamnar över andra element */
+}
+
+.timeline-content {
+    /* Boxen som innehåller texten eller innehållet vid varje punkt */
+    width: 45%; /* Tar ungefär halva bredden så det inte blir för stort */
+    background: #fff; /* Vit bakgrund */
+    padding: 16px; /* Lite inre luft runt texten */
+    border-radius: 8px; /* Rundade hörn för snyggare look */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Lite skugga för att få djup */
+}
+
+.left .timeline-content {
+    /* Om punkten ligger till vänster om linjen */
+    margin-right: auto; /* Skjuter bort innehållet från högerkanten */
+    text-align: right; /* Texten ska vara högerställd */
+}
+
+.right .timeline-content {
+    /* Om punkten ligger till höger om linjen */
+    margin-left: auto; /* Skjuter bort innehållet från vänsterkanten */
+    text-align: left; /* Texten ska vara vänsterställd */
+}
+
+/* Här börjar mobilen / små skärmar */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 8px; /* Flyttar linjen till vänster så den inte ligger mitt i mobilen */
+  }
+
+  .timeline-point {
+    flex-direction: column; /* Innehållet staplas istället för bredvid */
+    align-items: flex-start; /* Allt vänsterjusteras */
+    padding-left: 32px; /* Lite luft på vänster sida så det inte sitter fast */
+    position: relative; /* Behåll position för punkterna */
+  }
+
+  .timeline-point::before {
+    left: 0; /* Cirkeln flyttas till vänsterkanten */
+    transform: translateX(0); /* Ingen flyttning, cirkeln ligger direkt vid kanten */
+  }
+
+  .timeline-content {
+    width: 100%; /* Tar hela bredden på mobilen */
+    margin: 16px 0 0; /* Lite luft ovanför texten */
+    text-align: left; /* All text vänsterställd för bättre läsning på mobil */
+  }
+
+  .left .timeline-content,
+  .right .timeline-content {
+    margin: 16px 0 0; /* Samma marginal för båda sidor */
+    text-align: left; /* All text vänsterställd oavsett sida */
+  }
+}

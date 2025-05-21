@@ -1,0 +1,96 @@
+form {
+    /* Formuläret som håller allt, max 500px brett och centrerat */
+    max-width: 500px; /* Störst men inte för bred */
+    margin: 0 auto; /* Centrerar formuläret på sidan */
+    background-color: #fff; /* Vit bakgrund */
+    padding: 15px; /* Lite luft runt innehållet */
+    border-radius: 10px; /* Rundade hörn för snyggare look */
+}
+
+label {
+    /* Texten som visar vad varje fält är */
+    display: block; /* Gör så label tar hela bredden och hamnar över input */
+    margin-bottom: 5px; /* Lite luft under så det inte sitter ihop med input */
+}
+
+input[type="email"],
+textarea {
+    /* Inmatningsfält för mail och större textfält */
+    width: 100%; /* Tar hela bredden i formuläret */
+    padding: 10px; /* Luft inuti fälten så det är skönt att skriva */
+    margin-bottom: 15px; /* Luft under varje fält */
+    border: 1px solid #ccc; /* Ljusgrå kant runt fälten */
+    border-radius: 10px; /* Runda hörn */
+    font-size: 18px; /* Lagom stor text i fälten */
+}
+
+button {
+    /* Knappen för att skicka formuläret */
+    width: 100%; /* Tar hela bredden */
+    padding: 10px; /* Lite luft inuti knappen */
+    background-color: #002245; /* Mörkblå bakgrundsfärg */
+    color: white; /* Vit text */
+    border: none; /* Ingen kantlinje */
+    border-radius: 10px; /* Runda hörn på knappen */
+    font-size: 18px; /* Stor text så det är lätt att läsa */
+    cursor: pointer; /* Muspekaren blir hand när man hovrar */
+}
+
+button:hover {
+    /* När man håller musen över knappen */
+    background-color: #004a99; /* Lite ljusare blå för hover-effekt */
+}
+
+.box {
+    /* En flexbox-behållare för layout med flera delar */
+    display: flex; /* Använder flexbox */
+    flex-direction: row; /* Lägg saker bredvid varandra */
+    align-items: flex-start; /* Börjar längst upp */
+    gap: 20px; /* Mellanrum mellan elementen */
+    max-width: 1000px; /* Maxbredd för boxen */
+    margin: 40px auto; /* Luft ovanför och centrerad */
+    padding: 20px; /* Inre luft */
+}
+
+.box-left {
+    /* Den vänstra boxen, t.ex. för en bild eller info */
+    margin-top: 40px; /* Luft ovanför */
+    width: 250px; /* Fast bredd */
+    height: auto; /* Höjden anpassas */
+    border-radius: 8px; /* Runda hörn */
+    object-fit: cover; /* Täcker ytan snyggt utan att förvränga */
+    background-color: rgb(210, 201, 140); /* Gul-beige bakgrund */
+    text-align: left; /* Text vänsterställd */
+    padding: 10px; /* Luft inuti boxen */
+}
+
+.box-right {
+    /* Den högra boxen som fyller ut resten av platsen */
+    flex: 1; /* Tar upp all kvarvarande plats */
+}
+
+#confirmation {
+    /* Bekräftelsemeddelande som är gömt tills det ska visas */
+    display: none; /* Syns inte från start */
+    margin-top: 10px; /* Lite luft ovanför */
+    color: green; /* Grön text för "bra" känsla */
+}
+
+@media (max-width: 768px) {
+    /* Anpassningar för mobil och små skärmar */
+    .box {
+        flex-direction: column; /* Staplar innehållet på höjden istället för sida vid sida */
+        gap: 15px; /* Lite mindre mellanrum */
+        padding: 15px; /* Lite mindre padding */
+    }
+
+    .box-left {
+        width: 100%; /* Tar hela bredden på mobilen */
+        padding: 10px; /* Behåller luft */
+        text-align: center; /* Centrerar text och innehåll */
+    }
+
+    .box-right {
+        width: 100%; /* Tar hela bredden också */
+    }
+}

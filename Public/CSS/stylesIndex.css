@@ -1,0 +1,30 @@
+.text-1 {
+    /* Lite text som får lite luft ovanför och på sidorna så det inte sitter ihop med annat */
+    margin-top: 50px; /* Stor luft ovanför texten */
+    margin-left: 100px; /* Luft till vänster */
+    margin-right: 100px; /* Luft till höger */
+    font-weight: 800; /* Fet text så den syns tydligt */
+    font-size: 16px; /* Lagom stor text */
+    text-align: left; /* Texten är vänsterställd som vanligt */
+    color: black; /* Svart textfärg */
+}
+
+.quote-container {
+    /* En ruta för citat, lite större text och kursiv stil för känsla */
+    font-size: 20px; /* Större text så citatet märks */
+    color: black; /* Svart färg på texten */
+    font-style: italic; /* Kursiv text för citat-känsla */
+    padding: 20px; /* Luft inuti runt texten */
+    margin-top: 75px; /* Stor luft ovanför */
+    margin-bottom: 75px; /* Stor luft under */
+    display: inline-block; /* Så den bara tar upp så mycket plats som behövs */
+}
+
+@media (max-width: 768px) {
+    /* Anpassning för mobil/små skärmar */
+    .text-1 {
+        margin-top: 10px; /* Mindre luft ovanför på mobilen för att spara plats */
+        margin-left: 40px; /* Mindre luft på sidorna så texten får plats */
+        margin-right: 40px; /* Samma som vänster */
+    }
+}
